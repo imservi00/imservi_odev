@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polisan Holding</title>
+    <script src="https://cdn.tailwindcss.com/3.4.4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+</head>
+
+<body style="background-color: red;">
+    <header x-data="{menuitems: [
+        { href: '#slider', title: 'Anasayfa' },
+        { href: '#hakkimizda', title: 'Hakkımızda' },
+        { href: '#vizyon-misyon', title: 'Vizyon-Misyon' },
+        { href: '#faaliyet', title: 'Faaliyet Alanlarımız' },
+        { href: '#iletisim', title: 'İletişim' },
+        ]}" class="absolute z-50 top-0 w-full"> 
+        <div class="container mx-auto py-4 flex flex-row items-center">
+            <a href="">
+                <img src="images/polisan-white.png" alt="Polisan Holding" class="lg:w-[180px]">
+            </a>
+            <nav class="flex items-center justify-center gap-5 pl-0 ml-10 text-base">
+                <template x-for="(menuitem, index) in menuitems" :key="index ">
+                    <a x-bind:href="menuitem.href" x-text="menuitem.title" class="font-medium text-white hover:underline"></a>
+                </template>
+            </nav>
+        </div>
+    </header>
+    <div id="slider" x-data="slider" class="relative w-full h-screen overflow-hidden bg-red">
+        <template x-for="(slide,index) in slides">
+            <figure x-show="currentIndex==index">
+                <img x-bind:src="slide" class="absolute z-0 size-full object-cover" />
+            </figure>
+        </template>
+        <button x-on:click="back()" class="absolute left-14 top-1/2 -translate-y-1/2 size-10 z-10 rounded-full bg-red-100 hover:bg-red-100" shadow-md>
+            <svg class="size-8 text-red-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                </svg>
+        </button>
+        <button x-on:click="next()" class="absolute right-14 top-1/2 -translate-y-1/2 size-10 z-10 rounded-full bg-red-100 hover:bg-red-100" shadow-md>
+            <svg class="size-8 text-red-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                </svg>
+    </div>
+    <div id="hakkimizda" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-row gap-12 items-center">
+                <div class="w-6/12">
+                    <img src="./images/polisan_hakkımızda_adam.jpg" alt="Polsian Holding çalışanı görseli" class="w-full rounded-lg">
+                </div>
+                <div class= "w-6/12 w-full rounded-lg bg-red-500 my-8 p-14">
+                    <img src="./images/polisan-white.png" alt="Polisan Holding" class="w-[180px] ">
+                    <h2 class="text-2xl text-white font-semibold">AMACIMIZ</h2>
+                    <p class="mt-6" style="color: white;">2000 yılında kurulan Polisan Holding A.Ş.,
+                        sermayesine ve yönetimine katıldığı şirketler
+                        arasında koordinasyonu sağlamak, sevk ve
+                        idare edilmelerini temin etmek, planlama,
+                        pazarlama, mali işler, finansman ve fon
+                        yönetimi, hukuk, insan kaynakları, bilgi işlem
+                        alanlarında gelişmiş tekniklerle çalışmalarını
+                        sağlamak amacıyla kurulmuş olup faaliyetlerini
+                        bu yönde sürdürmektedir.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full rounded-lg bg-red-500 my-8 p-14">
+                <h2 class ="text-3xl text-white font-semibold">HAKKIMIZDA</h2>
+                <P class="mt-4 text-white">
+                    Türkiye’nin köklü grup şirketlerinden Polisan Holding’in
+                    temelleri 1956 yılına kadar uzanıyor. 1942 yılında
+                    Malatya’dan İstanbul’a göç eden Bitlis Ailesi,ticarete atıldı
+                    ve 1956 yılında Şark Mensucat Fabrikasını kurarak tekstil
+                    işi yapmaya başladılar.</P>
+                <p class="mt-4 text-white"> Baba Ahmet Faik Bitlis’in 1960 yılında vefatı ile Necmettin ve Şemsettin
+                    Bitlis kardeşlerin ticaretteki etkinliği iyice arttı. Girişimci ruh
+                    ile birleştirdiği birçok hayali bulunan Necmettin Bitlis’in
+                    Kağıthane’de bulunan Şark Mensucat Fabrikası’nın yanındaki boş araziyi
+                    alması ise bugünkü Polisan Holding’in doğuşuna giden yolu açtı.</p>
+                <p class="mt-4 text-white">
+                    Türkiye’nin önemli ihtiyaçlarından birine cevap vermek üzere
+                    1964 yılında Polivinil Asetat Kimyevi Maddeler Sanayi A.Ş. kuruldu 
+                    ve ismi 1967 yılında Polisan Kimya olarak değiştirildi.
+                    Sektörün önünü açan ve birçok ilke imza atan Polisan Kimya, Holding’in ilk
+                    iştiraki ve Necmettin Bitlis’in hayata geçirdiği önemli hayallerinden biri oldu.</p>  
+                <p class="mt-4 text-white">Artan talebe cevap verebilmek ve hammaddeye ulaşımı kolaylaştırmak için
+                    üretim tesisini Kağıthane’den Dilovası’na taşıma kararı
+                    alan Polisan Holding Kurucusu Necmettin Bitlis, sonrasında
+                    liman işletmeciliği alanında da yatırım eksikliği bulunduğunu
+                    gözlemledi. Bunun üzerine kuru yük ile dökme sıvı depolama ve elleçleme
+                    iş koluna da giriş yapıldı ve 1971 yılında Kocaeli Körfez
+                    Bölgesi’nde liman işletmeciliği iştiraki olan Poliport kuruldu. 
+                   Holding, 1985 yılında da boya iş koluna yatırım yaparak faaliyet
+                    alanlarını genişletti.</p>
+                <p class="mt-4 text-white">Kimya, liman işletmeciliği ve boya sektörlerine yönelik yatırımları
+                    tek yapı altında toplamak, şirketler arasında koordinasyonu
+                    sağlamak, sevk ve idare edilmelerini temin etmek için 2000 yılında
+                    Polisan Holding A.Ş. adı altında üst bir yapılanmaya gidildi.
+                    Polisan Holding, 2006 yılında gayrimenkul sektörüne yönelik 
+                   yatırımlarda bulunmak için yeni bir şirketi daha bünyesine dahil
+                    ederken, globalde de önemli iş ortaklıkları ve yatırımlara gitti.</p>
+                    <br>
+
+                    <p class="mt-4 text-white">Kimya sektörünün dünyadaki önemli markalarından Dow Chemical ile
+                        ortaklığı bulunan Polisan Holding, boya tarafında ise Kansai
+                         Point ile 2016 yılında %50 ortaklık geliştirdi. Polisan Holding’in
+                         Yunanistan’daki iştiraki Polisan Hellas, 2013 yılından hizmete girdi
+                         ve halihazırda Balkanların tek granül pet üreticisi durumunda bulunmakta.</p>
+            </div>
+        </div>
+    </div>
+    <div id="vizyon-misyon" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-row gap-12 items-center">
+              <div class="w-6/12">
+                <img src="./images/faliyet-alanlarımız kimya.jpeg" alt="Vizyonumuz" class="w-full rounded-lg">
+                </div>
+            <div class= "w-6/12 w-full rounded-lg bg-red-500 my-8 p-14">
+                <img src="./images/polisan-white.png" alt="Polisan Holding" class="w-[180px] ">
+                <h2 class="text-2xl text-white font-semibold">VİZYONUMUZ</h2>
+                <p class="mt-6" style="color: white;">Yaşanabilir bir dünya için heyecanla çalışan bir topluluk olmak bizim kimyamızda var.
+                    İnsanlık için daha iyi bir geleceği bugünden tasarlarken, var olduğumuz her alanda
+                     en iyisini sunarız. Bunu başarmak için yapılmayanı, yapılamayanı yapma arzusu ve yenilikçilik 
+                    tutkusuyla çalışır, hayatın her gününe fark katarız. Paydaşlarımızın sadece beklentilerini karşılamakla yetinmez, 
+                    beklentilerin ötesine ulaşmayı amaçlarız. Bu vizyondan ödün vermeden ve bilimden güç alarak istisnasız her konuda
+                     liderliği hedefleriz..</p>
+                </div>
+            </div>
+
+            <div class="w-full rounded-lg bg-red-500 my-8 p-14">
+                <h2 class ="text-2xl text-white font-semibold">MİSYONUMUZ</h2>
+                <P class="mt-4 text-white">Faaliyet gösterdiğimiz her alanda, daima yaşam için 
+                    iyi olandan yanayız.Yaptığımız her şeyin özünde 
+                    insana değer ve sevgi, adalet, samimiyet ve biz bilinci
+                     yer alır.
+                    Bulunduğumuz sektörlerde yenilikçiliği,
+                     müşteri odaklılığı ve sürdürülebilirliği 
+                    sahiplenen bir topluluk şirketi olmak için çaba harcarız.
+                     Amacımız değer artışı sağlamak ve en iyi performans 
+                    sağlayan hizmet ve ürünleri sunmaktır.</P></div>
+
+    <div id="faaliyet" x-data="faaliyet" class="py-20 ">
+        <div x-data="{ tabs: ['Faaliyet Alanlarımız',] }" class="max-w-md mx-auto mb-8 flex gap-x-4 p-2 bg-white shadow-md rounded-lg">
+            <template x-for ="(tab, index) in tabs" :key="index">
+              <button x-text="tab" x-on:click="change(index)" x-bind:class="{ 'bg-red-600 text-white': currentIndex==index }" class="flex-1 py-2 px-4 rounded-md transition-all duration-300"></button>
+            </template>
+        </div>
+        <div class="container mx-auto px-4">
+            <div x-show="currentIndex==0">
+                <div class="grid gap-4 grid-cols-3">
+                    <template x-for="(faaliyet,index) in faaliyet"  :key="index">
+                        <div class="bg-white w-full shadow-md rounded-2xl p-1 max-w-[445px]">
+                            <img x-bind:src="faaliyet.image" x-bind:alt="faaliyet.name" class="h-60 rounded-2xl w-full object-cover">
+                            <p x-text="faaliyet.name" class="text-lg font-semibold text-gray-800 p-3 text-center"></p>
+                        </div>
+                    </template>
+                </div>
+
+            <div x-show="currentIndex==1"></div>
+            <div x-show="currentIndex==2"></div>
+        </div>
+    </div>   
+     
+    <div id="contact" class="py-8 sm:py-12 md:py-16 lg:py-20 " style="background-color: red;">
+        <div class="container mx-auto px-4">
+          <div class="md:flex items-center gap-10">
+            <div class="flex-1">
+              <form class="text-white">
+                <div>
+                    <label for="name" class="mb-3 block text-base font-medium">İsim Soyisim</label>
+                    <input type="text" name="name" id="name"
+                    class="w-full rounded-md border-none bg-white py-3 px-4 text-base text-black font-medium outline-none">
+                </div>
+                <div class="mt-3">
+                    <label for="email" class="mb-3 block text-base font-medium">E-posta adresi</label>
+                    <input type="email" name="email" id="email"
+                    class="w-full rounded-md border-none bg-white py-3 px-4 text-base text-black font-medium outline-none">
+                </div>
+                <div class="mt-3">
+                    <label for="phone" class="mb-3 block text-base font-medium">Telefon</label>
+                    <input type="tel" name="phone" id="phone"
+                    class="w-full rounded-md border-none bg-white py-3 px-4 text-base text-black font-medium outline-none">
+                </div>
+                <div class="mt-3">
+                    <label for="message" class="mb-3 block text-base font-medium">Mesaj</label>
+                    <textarea rows="4" name="message" id="message"
+                    class="w-full rounded-md border-none bg-white py-3 px-4 text-base text-black font-medium outline-none resize-none"></textarea>
+                </div>
+                <div class="mt-3">
+                  <button
+                    class="bg-black text-center font-semibold rounded-lg px-10 py-3 hover:bg-red-500">Gönder</button>
+                </div>
+              </form>
+            </div>
+            <div class="flex-1 mb-6 md:mb-0">
+                <img src="./images/polisan-white.png" alt="Polisan">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">Bize Ulaşın.</h2> <br>
+                <h1 class="text-white">Polisan Holding Anonim Şirketi kişisel verilerinizin hukuka uygun olarak toplanması, saklanması ve paylaşılmasını sağlamak ve gizliliğinizi korumak amacıyla mümkün olan en üst seviyede güvenlik tedbirlerini almaktadır.</h1>
+            </div>
+        </div>
+    </div>
+    <div id="iletisim" class="py-8 sm:py-12 md:py-16 lg:py-20">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-center">
+            <div class="flex flex-col items-center gap-3">
+              <img src="./images/email-logo.png" width="50" alt="">
+              <p class="text-2xl font-extrabold text-black">E-posta</p>
+              <a href="mailto:info@polisan.com.tr" class="text-lg font-bold hover:text-gray-600">info@polisan.com.tr</a>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+              <img src="./images/phone-icon.png" width="50" alt="">
+              <p class="text-2xl font-extrabold text-black">Telefon</p>
+              <a href="tel:4448464" class="text-lg font-bold hover:text-gray-600">0216 578 56 00</a>
+            </div>
+            <div class="flex flex-col items-center gap-3 col-span-1 md:col-span-2 lg:col-span-1">
+              <img src="./images/location-icon.png" width="50" alt="">
+              <p class="text-2xl font-extrabold text-black">Adres</p>
+              <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x14cac65b25e3e783:0xd0c81cdcb86a85fb?sa=X&ved=1t:8290&ictx=111" class="text-base font-bold hover:text-gray-600">Hilltown Ofis, Aydınevler Mah. Siteler Yolu Cad. 28 No:1/A Küçükyalı-Maltepe, İSTANBUL</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+          Alpine.data('slider', () => ({
+            slides:[
+                './images/slide-1.png',
+                './images/slide-2.png',
+                './images/slide-3.png',
+                './images/slide-4.png',
+
+            ],
+            currentIndex:1,
+            back() {
+                if (this.currentIndex > 1) {
+                    this.currentIndex = this.currentIndex -1 ;
+                }
+
+            },
+            
+            next() {
+                if (this.currentIndex < this.slides.length -1) {
+                    this.currentIndex = this.currentIndex +1;
+                } else {
+                    this.currentIndex = 0;
+
+                }
+            }
+          }))    
+       
+          Alpine.data('faaliyet',() => ({
+            faaliyet:[
+                { image: "./images/faliyet-alanlarımız-boya.jpg", name: "Boya Sektörü"},
+                { image: "./images/faliyet-alanlarımız-poliport-liman_607_3a858.jpg", name: "Liman İşletmeciliği"},
+                { image: "./images/faliyet-alanlarımız kimya.jpeg", name: "Kimya Sektörü"},
+                { image: "./images/polisan enerji üretim merkezi.webp", name: "Enerji Üretimi"},
+                { image: "./images/pet_fabt.jpg", name: "Polietilen Tereftalat (PET) Üretimi"},
+                { image: "./images/referanslar-selvi-park-evleri_70fac.jpg", name: "Gayrimenkul"},
+                
+            ],
+            currentIndex:0,
+            change(index) {
+                this.currentIndex=index;
+            }
+          }))
+        })
+    </script>
+</body>
+</html>
